@@ -4,7 +4,7 @@ class MainScene extends Phaser.Scene{
     }
 
     init(){
-
+      
     }
 
     preload(){
@@ -14,21 +14,34 @@ class MainScene extends Phaser.Scene{
     }
 
     create(){
+        this.cursors = this.input.keyboard.createCursorKeys();
         
     }
 
+   
     update(){
         if(this.input.activePointer.isDown){
-            this.paint(this.randomColor(['red', 'yellow', 'blue']));
+            this.paint(this.selectColor());
         }
     }
 
     paint(color){
         this.add.image(this.input.activePointer.x, this.input.activePointer.y, color);
     }
+    selectColor(){
+        if(this.cursors.down.isDown){
+           return 'red'
+        }
 
-    randomColor(arr){
-       let num = Math.floor(Math.random() * arr.length);
-        return arr[num];
+        if(this.cursors.up.isDown){
+          return 'blue'
+        }
+
+        else{
+            return 'yellow'
+        }
     }
+
+
+
 }
