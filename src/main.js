@@ -1,8 +1,8 @@
 /** @type {import('../typings/phaser')} */
 
 var config = {
-    height: 480,
-    width: 640,
+    height: 720,
+    width: 1280,
     scene: MainScene,
     backgroundColor: '#808080'
    
